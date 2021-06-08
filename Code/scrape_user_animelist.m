@@ -1,6 +1,7 @@
 %% Function to: 
 %   1. scrape a user's (specified by username input) animelist from webpage
-%   2. save the animelist as .csv in ../Data/User_AnimeLists/
+%   2. clean the data
+%   3. save the animelist as .csv in ../Data/User_AnimeLists/
 
 ... Anime Status                ...
     ... 1 - Currently Watching  ...
@@ -25,6 +26,7 @@ function user_animelist = scrape_user_animelist(username)
     while 1
         if t < 4
             pause(4.2-t)
+            % MAL could block your IP if multiple requests are made within 4 sec
         end
         tic;
         webpage = webread([url num2str(height(user_animelist))]);
